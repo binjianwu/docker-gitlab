@@ -113,7 +113,9 @@ exec_as_git sed -i 's/db:reset/db:setup/' ${GITLAB_INSTALL_DIR}/lib/tasks/gitlab
 
 cd ${GITLAB_INSTALL_DIR}
 
-gem 'omniauth-cas','~>1.1.0'
+echo "gem 'omniauth-cas'" >> Gemfile
+
+gem install omniauth-cas
 
 # install gems, use local cache if available
 if [[ -d ${GEM_CACHE_DIR} ]]; then
