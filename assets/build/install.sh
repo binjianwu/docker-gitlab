@@ -112,7 +112,8 @@ exec_as_git sed -i "/headers\['Strict-Transport-Security'\]/d" ${GITLAB_INSTALL_
 exec_as_git sed -i 's/db:reset/db:setup/' ${GITLAB_INSTALL_DIR}/lib/tasks/gitlab/setup.rake
 
 cd ${GITLAB_INSTALL_DIR}
-echo "gem 'omniauth-cas','~>1.1.0'" >> Gemfile
+
+gem 'omniauth-cas','~>1.1.0'
 
 # install gems, use local cache if available
 if [[ -d ${GEM_CACHE_DIR} ]]; then
