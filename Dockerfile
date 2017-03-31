@@ -47,8 +47,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E1DD270288B4E60
  && gem install --no-document bundler \
  && rm -rf /var/lib/apt/lists/*
  
-RUN mkdir ${GITLAB_BUILD_DIR} -p
 COPY assets/build/ ${GITLAB_BUILD_DIR}/
+RUN ls -al ${GITLAB_BUILD_DIR}
 RUN bash ${GITLAB_BUILD_DIR}/install.sh
 
 COPY assets/runtime/ ${GITLAB_RUNTIME_DIR}/
