@@ -8,6 +8,7 @@ GITLAB_PAGES_URL=https://gitlab.com/gitlab-org/gitlab-pages/repository/archive.t
 
 GEM_CACHE_DIR="${GITLAB_BUILD_DIR}/cache"
 
+echo "start excute shell........."
 BUILD_DEPENDENCIES="gcc g++ make patch pkg-config cmake paxctl \
   libc6-dev ruby${RUBY_VERSION}-dev \
   libmysqlclient-dev libpq-dev zlib1g-dev libyaml-dev libssl-dev \
@@ -33,6 +34,7 @@ paxctl -Cm `which nodejs`
 # remove the host keys generated during openssh-server installation
 rm -rf /etc/ssh/ssh_host_*_key /etc/ssh/ssh_host_*_key.pub
 
+echo "create user......."
 # add ${GITLAB_USER} user
 adduser --disabled-login --gecos 'GitLab' ${GITLAB_USER}
 passwd -d ${GITLAB_USER}
