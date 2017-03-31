@@ -48,7 +48,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E1DD270288B4E60
  && rm -rf /var/lib/apt/lists/*
  
 COPY assets/build/ ${GITLAB_BUILD_DIR}/
-RUN ls -al ${GITLAB_BUILD_DIR}
+RUN ls -al ${GITLAB_BUILD_DIR} && chmod +x ${GITLAB_BUILD_DIR}/install.sh
 RUN bash ${GITLAB_BUILD_DIR}/install.sh
 
 COPY assets/runtime/ ${GITLAB_RUNTIME_DIR}/
