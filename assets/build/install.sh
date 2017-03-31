@@ -115,7 +115,7 @@ cd ${GITLAB_INSTALL_DIR}
 
 echo "gem 'omniauth-cas'" >> Gemfile
 
-gem install omniauth-cas
+bundle install
 
 # install gems, use local cache if available
 if [[ -d ${GEM_CACHE_DIR} ]]; then
