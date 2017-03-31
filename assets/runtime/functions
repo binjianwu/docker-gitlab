@@ -439,7 +439,7 @@ gitlab_configure_oauth_cas3() {
       OAUTH_CAS3_VALIDATE_URL \
       OAUTH_CAS3_LOGOUT_URL
   else
-    exec_as_git sed -i "/name: 'cas3'/,/{{OAUTH_CAS3_LOGOUT_URL}}/d" ${GITLAB_CONFIG}
+    exec_as_git sed -i "/name: ${OAUTH_CAS3_NAME:-cas3}/,/{{OAUTH_CAS3_LOGOUT_URL}}/d" ${GITLAB_CONFIG}
   fi
 }
 
